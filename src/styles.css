@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --color-main: #F5EFE6;
+  --color-sub: #E8DFCA;
+  --color-text: #281812;
+  --color-lighter: #7895B2;
+
+  --font-size-title: 44px;
+  --font-size-subtitle: 32px;
+  --font-size-text: 18px;
+}
+
+body {
+  margin: 0;
+}
