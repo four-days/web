@@ -19,7 +19,7 @@ export class AppConfigService {
 
   get urlApiUrl() {
     this.checkConfig();
-    return `${this.appConfig.apiServerUrl}${this.appConfig.urlApiPath}`;
+    return `${this.appConfig.api.url.server}${this.appConfig.api.path.url}`;
   }
 
   private checkConfig(): void {
