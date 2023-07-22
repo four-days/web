@@ -1,5 +1,3 @@
 export interface UrlKey {
-  data: {
-    urlKey: string
-  }
+  urlKey: string,
 }
