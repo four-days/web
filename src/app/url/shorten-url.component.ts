@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {UrlService} from "./url.service";
 import {Observable, throwError} from "rxjs";
-import {HttpErrorResponse} from "@angular/common/http";
+import {UrlKey} from "../models/url-key";
 
 @Component({
   selector: 'app-short-url',
@@ -24,14 +24,14 @@ export class ShortenUrlComponent {
 
     this.urlService.shortenUrl(this.inputUrl)
       .subscribe({
-        next: response => {
-          this.shortenedUrl = response.urlKey;
+        next: (result: UrlKey): void => {
+          this.shortenedUrl = result.urlKey;
         },
-        error: error => this.handleError(error)
+        error: (error): Observable<never> => this.handleError(error)
       });
   }
 
-  private handleError(error: HttpErrorResponse): Observable<never> {
+  private handleError(error: Error): Observable<never> {
     this.shortenedUrl = 'Do not input invalid url';
     console.error(error);
     return throwError(() => new Error('Something bad'));
