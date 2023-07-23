@@ -20,8 +20,8 @@ export class UrlService {
     return this.http.post<UrlKey>(this.urlApiUrl, {url})
       .pipe(
         tap<UrlKey>({
-          next: result => this.printResult(result),
-          error: error => this.handleError(error)
+          next: (response: UrlKey): void => this.printResult(response),
+          error: (error): Observable<never> => this.handleError(error)
         })
       );
   }
