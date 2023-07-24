@@ -1,5 +1,29 @@
+.header {
+  display: flex;
+  position: sticky;
 
-footer {
+  /* 스크롤업되는 컨텐츠 위로 올라오도록 */
+  z-index: 2;
+  top: 0;
+  height: var(--height-toolbar);
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-main);
+
+  color: white;
+}
+
+.header__homelink {
+  display: inline-block;
+  padding: 0 24px;
+  height: var(--height-toolbar);
+  line-height: var(--height-toolbar);
+  cursor: pointer;
+  text-decoration-line: none;
+  color: var(--color-dark);
+}
+
+.footer {
   padding: 2em;
   font-size: var(--font-size-text);
   text-align: center;

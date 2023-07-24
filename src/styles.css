@@ -5,10 +5,13 @@
   --color-sub: #E8DFCA;
   --color-text: #281812;
   --color-lighter: #7895B2;
+  --color-dark: #2F4858;
 
   --font-size-title: 44px;
   --font-size-subtitle: 32px;
   --font-size-text: 18px;
+
+  --height-toolbar: 72px;
 }
 
 body {
