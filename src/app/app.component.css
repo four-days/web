@@ -24,9 +24,12 @@
 }
 
 .footer {
-  padding: 2em;
+  padding: 1em 0;
   font-size: var(--font-size-text);
   text-align: center;
   color: white;
   background-color: var(--color-lighter);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
