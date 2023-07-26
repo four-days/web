@@ -1,3 +1,3 @@
-<button (click)="shortenUrl()">생성</button>
-<textarea rows="10" cols="30" placeholder="input your url" [(ngModel)]="inputUrl"></textarea>
-<p *ngIf="shortenedUrl">{{ shortenedUrl }}</p>
+<p class="main__app-shorten-url__p" *ngIf="shortenedUrl">{{ shortenedUrl }}</p>
+<button class="main__app-shorten-url__button" (click)="shortenUrl()">CREATE</button>
+<textarea class="main__app-shorten-url__textarea" rows="10" cols="30" placeholder="input your url" [(ngModel)]="inputUrl"></textarea>
