@@ -1,0 +1,28 @@
+.main__app-shorten-url__button {
+  width: 50%;
+  min-height: 30px;
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-color: var(--color-dark);
+  border-radius: 10px 5px 2em / 20px 25px 30%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.main__app-shorten-url__textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.main__app-shorten-url__textarea:focus {
+  color: transparent;
+  text-shadow: 0 0 0 black;
+  font-weight: bold;
+}
