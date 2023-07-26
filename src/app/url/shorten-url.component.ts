@@ -4,7 +4,7 @@ import {Observable, throwError} from "rxjs";
 import {UrlKey} from "../models/url-key";
 
 @Component({
-  selector: 'app-short-url',
+  selector: 'app-shorten-url',
   templateUrl: './shorten-url.component.html',
   styleUrls: ['./shorten-url.component.css']
 })
