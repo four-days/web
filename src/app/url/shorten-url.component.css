@@ -10,6 +10,7 @@
   border-radius: 10px 5px 2em / 20px 25px 30%;
   cursor: pointer;
   font-weight: bold;
+  display: block;
 }
 
 .main__app-shorten-url__textarea {
@@ -28,5 +29,28 @@
 .main__app-shorten-url__p {
   text-align: center;
   font-weight: bold;
-  padding: 1em 0;
+  margin: 2em 0;
+  display: inline-block;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+
+.main__app-shorten-url__p:hover {
+  cursor: pointer;
+  color: var(--color-lighter);
+}
+
+.main__app-shorten-url__tooltip {
+  background-color: var(--color-dark);
+  color: var(--color-sub);
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+  font-weight: bold;
+  display: inline-block;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
