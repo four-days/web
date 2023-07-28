@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {UrlService} from "./url.service";
-import {Observable, throwError} from "rxjs";
-import {UrlKey} from "../models/url-key";
+import { Component } from '@angular/core';
+import { UrlService } from "./url.service";
+import { Observable, throwError } from "rxjs";
+import { UrlKey } from "../models/url-key";
 
 @Component({
   selector: 'app-shorten-url',
@@ -14,6 +14,8 @@ export class ShortenUrlComponent {
 
   shortenedUrl: string = '';
 
+  showTooltip: boolean = false;
+
   constructor(private urlService: UrlService) {
   }
 
@@ -25,15 +27,28 @@ export class ShortenUrlComponent {
     this.urlService.shortenUrl(this.inputUrl)
       .subscribe({
         next: (result: UrlKey): void => {
-          this.shortenedUrl = result.urlKey;
+          this.shortenedUrl = `https://four.days/${result.urlKey}`;
+          this.showTooltip = false;
         },
         error: (error): Observable<never> => this.handleError(error)
       });
   }
 
+  public copyShortenUrl(): void {
+    if (this.shortenedUrl.startsWith('https://four.days')) {
+      navigator.clipboard.writeText(this.shortenedUrl)
+        .then(() => {
+          this.showTooltip = true;
+          setTimeout(() => {
+            this.showTooltip = false;
+          }, 1500);
+        });
+    }
+  }
+
   private handleError(error: Error): Observable<never> {
-    this.shortenedUrl = 'Do not input invalid url';
+    this.shortenedUrl = 'Enter a common URL!';
     console.error(error);
-    return throwError(() => new Error('Something bad'));
+    return throwError(() => error);
   }
 }
