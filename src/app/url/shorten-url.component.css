@@ -21,8 +21,12 @@
   text-align: center;
 }
 
-.main__app-shorten-url__textarea:focus {
+.main__app-shorten-url__textarea:focus::placeholder {
   color: transparent;
-  text-shadow: 0 0 0 black;
+}
+
+.main__app-shorten-url__p {
+  text-align: center;
   font-weight: bold;
+  padding: 1em 0;
 }
