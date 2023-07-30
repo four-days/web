@@ -1,4 +1,5 @@
 <span class="main__app-shorten-url__tooltip" *ngIf="showTooltip">Copied!</span>
 <p class="main__app-shorten-url__p" (click)="copyShortenUrl()" *ngIf="shortenedUrl">{{ shortenedUrl }}</p>
 <button class="main__app-shorten-url__button" (click)="shortenUrl()">CREATE</button>
-<textarea class="main__app-shorten-url__textarea" rows="10" cols="30" placeholder="input your url" [(ngModel)]="inputUrl"></textarea>
+<textarea class="main__app-shorten-url__textarea" rows="10" cols="30" placeholder="input your url"
+          [(ngModel)]="inputUrl" (keydown.enter)="onKeydown($event)" (keyup.enter)="shortenUrl()"></textarea>

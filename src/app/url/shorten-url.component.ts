@@ -34,6 +34,10 @@ export class ShortenUrlComponent {
       });
   }
 
+  public onKeydown(event: Event): void {
+    event.preventDefault();
+  }
+
   public copyShortenUrl(): void {
     if (this.shortenedUrl.startsWith('https://four.days')) {
       navigator.clipboard.writeText(this.shortenedUrl)
