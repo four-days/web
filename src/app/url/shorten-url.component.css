@@ -20,6 +20,7 @@
   resize: none;
   cursor: pointer;
   text-align: center;
+  height: 4em;
 }
 
 .main__app-shorten-url__textarea:focus::placeholder {
