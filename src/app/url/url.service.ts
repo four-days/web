@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable, tap, throwError } from "rxjs";
-import { UrlKey } from "../models/url-key";
+import { UrlKey } from "../models/urlKey";
 import { AppConfigService } from "../config/app-config.service";
 import { OriginalUrl } from "../models/OriginalUrl";
 
