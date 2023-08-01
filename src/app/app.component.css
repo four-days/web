@@ -41,3 +41,7 @@
   width: 100%;
   bottom: 0;
 }
+
+.footer__img {
+  max-height: 15px;
+}
