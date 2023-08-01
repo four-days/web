@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UrlService } from "./url.service";
 import { Observable, throwError } from "rxjs";
-import { UrlKey } from "../models/url-key";
+import { UrlKey } from "../models/urlKey";
 
 @Component({
   selector: 'app-shorten-url',
