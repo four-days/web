@@ -17,9 +17,14 @@ export class AppConfigService {
       .then(data => this.appConfig = data);
   }
 
-  get urlApiUrl() {
+  get urlApiUrl(): string {
     this.checkConfig();
     return `${this.appConfig.api.url.server}${this.appConfig.api.path.url}`;
+  }
+
+  get siteUrl(): string {
+    this.checkConfig();
+    return `${this.appConfig.site.url}`;
   }
 
   private checkConfig(): void {
