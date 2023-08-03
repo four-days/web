@@ -2,13 +2,19 @@ import { Component } from '@angular/core';
 import { UrlService } from "./url.service";
 import { Observable, throwError } from "rxjs";
 import { UrlKey } from "../models/urlKey";
+import { AppConfigService } from "../config/app-config.service";
 
 @Component({
   selector: 'app-shorten-url',
   templateUrl: './shorten-url.component.html',
-  styleUrls: ['./shorten-url.component.css']
+  styleUrls: ['./shorten-url.component.css'],
+  host: {
+    class: 'main__app-shorten-url',
+  }
 })
 export class ShortenUrlComponent {
+
+  private readonly siteUrl: string = '';
 
   inputUrl: string = '';
 
@@ -16,7 +22,9 @@ export class ShortenUrlComponent {
 
   showTooltip: boolean = false;
 
-  constructor(private urlService: UrlService) {
+  constructor(private appConfigService: AppConfigService,
+              private urlService: UrlService) {
+    this.siteUrl = appConfigService.siteUrl;
   }
 
   public shortenUrl(): void {
@@ -27,7 +35,7 @@ export class ShortenUrlComponent {
     this.urlService.shortenUrl(this.inputUrl)
       .subscribe({
         next: (result: UrlKey): void => {
-          this.shortenedUrl = `https://four.days/${result.urlKey}`;
+          this.shortenedUrl = `${this.siteUrl}/${result.urlKey}`;
           this.showTooltip = false;
         },
         error: (error): Observable<never> => this.handleError(error)
@@ -39,7 +47,7 @@ export class ShortenUrlComponent {
   }
 
   public copyShortenUrl(): void {
-    if (this.shortenedUrl.startsWith('https://four.days')) {
+    if (this.shortenedUrl.startsWith(this.siteUrl)) {
       navigator.clipboard.writeText(this.shortenedUrl)
         .then(() => {
           this.showTooltip = true;
