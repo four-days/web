@@ -23,7 +23,7 @@
   color: var(--color-dark);
 }
 
-.main__app-shorten-url {
+::ng-deep router-outlet + app-shorten-url {
   position: absolute;
   width: 50%;
   top: 50%;
