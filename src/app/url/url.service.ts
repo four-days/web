@@ -12,7 +12,7 @@ export class UrlService {
 
   private readonly urlApiUrl: string;
 
-  private readonly urlRegex: RegExp = /^(http(s)?:\/\/)([a-z0-9\w]+\.*)+\.[a-z0-9]{2,}(:[0-9]+)?(\/[a-zA-Z0-9]*\/?)?$/;
+  private readonly urlRegex: RegExp = /^(http(s)?:\/\/)([a-z0-9\w]+\.*)+\.[a-z0-9]{2,}(:[0-9]+)?(\/[a-zA-Z0-9=%/?]*\/?)?$/;
 
   constructor(private appConfigService: AppConfigService,
               private http: HttpClient) {
