@@ -14,6 +14,8 @@ export class UrlService {
 
   private readonly urlRegex: RegExp = /^(https?):\/\/([^:\/\s]+)\.[a-z0-9]{2,}(:([^\/]*))?((\/[^\s/\/]+)*)?\/?([^#\s\?]*)(\?([^#\s]*))?(#(\w*))?$/;
 
+  private requestedUrl: string = '';
+
   constructor(private appConfigService: AppConfigService,
               private http: HttpClient) {
     this.urlApiUrl = this.appConfigService.urlApiUrl;
@@ -21,8 +23,14 @@ export class UrlService {
 
   public shortenUrl(url: string): Observable<UrlKey> {
     if (!this.validate(url)) {
-      return throwError(() => new Error('invalid url'));
+      return throwError(() => new Error('Enter a common URL!'));
     }
+
+    if (this.requestedUrl === url) {
+      return throwError(() => new Error('The URL is already shortened.'))
+    }
+
+    this.requestedUrl = url;
 
     return this.http.post<UrlKey>(this.urlApiUrl, {url})
       .pipe(
