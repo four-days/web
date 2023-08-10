@@ -59,7 +59,7 @@ export class ShortenUrlComponent {
   }
 
   private handleError(error: Error): Observable<never> {
-    this.shortenedUrl = 'Enter a common URL!';
+    this.shortenedUrl = error.message;
     console.error(error);
     return throwError(() => error);
   }
